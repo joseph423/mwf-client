@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+        <html ng-app="app" ng-controller="AppController">
+          <head>
+            <base href="/">
+            <title>Attentance Tracker - Sign In</title>
+            <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+            <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+            <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+            <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+            <!-- App -->
+
+            <!--After Login-->
+            <!-- Bootstrap -->
+            <link href="app/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+            <!-- Font Awesome -->
+            <link href="app/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+            <!-- NProgress -->
+            <link href="app/assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+            <!-- Animate.css -->
+            <link href="app/assets/vendors/animate.css/animate.min.css" rel="stylesheet">
+            <!-- Custom Theme Style -->
+            <link href="app/assets/vendors/build/css/custom.css" rel="stylesheet">
+
+            <!-- Datatables -->
+            <link href="app/assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+            <link href="app/assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+            <link href="app/assets/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+            <link href="app/assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+            <link href="app/assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+          </head>
+
+          <body ng-class="getClass()">
+
+            <!--ui-view-->
+            <div ui-view=""></div>
+            <!--/ui-view-->
+
+            <script src="app/app.js"></script>
+            <script src="app/pages/common/login/login.controller.js"></script>
+            <script src="app/pages/common/main-page/frame.controller.js"></script>
+            <script src="app/pages/user/corpAdmin/corpAdmin.controller.js"></script>
+            <script src="app/components/nav/side-nav/side-nav.js"></script>
+            <script src="app/components/nav/top-nav/top-nav.js"></script>
+
+            <script src="app/components/company-management/company/corp.controller.js"></script>
+
+            <!-- jQuery -->
+            <script src="app/assets/vendors/jquery/dist/jquery.min.js"></script>
+            <!-- Bootstrap -->
+            <script src="app/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+            <!-- FastClick -->
+            <script src="app/assets/vendors/fastclick/lib/fastclick.js"></script>
+            <!-- NProgress -->
+            <!--<script src="app/assets/vendors/nprogress/nprogress.js"></script>-->
+            <!-- Chart.js -->
+            <script src="app/assets/vendors/Chart.js/dist/Chart.min.js"></script>
+            <!-- gauge.js -->
+            <script src="app/assets/vendors/gauge.js/dist/gauge.min.js"></script>
+            <!-- bootstrap-progressbar -->
+            <script src="app/assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+            <!-- iCheck -->
+            <script src="app/assets/vendors/iCheck/icheck.min.js"></script>
+            <!-- Skycons -->
+            <script src="app/assets/vendors/skycons/skycons.js"></script>
+            <!-- Flot -->
+            <script src="app/assets/vendors/Flot/jquery.flot.js"></script>
+            <script src="app/assets/vendors/Flot/jquery.flot.pie.js"></script>
+            <script src="app/assets/vendors/Flot/jquery.flot.time.js"></script>
+            <script src="app/assets/vendors/Flot/jquery.flot.stack.js"></script>
+            <script src="app/assets/vendors/Flot/jquery.flot.resize.js"></script>
+            <!-- Flot plugins -->
+            <script src="app/assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+            <script src="app/assets/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+            <script src="app/assets/vendors/flot.curvedlines/curvedLines.js"></script>
+            <!-- DateJS -->
+            <script src="app/assets/vendors/DateJS/build/date.js"></script>
+            <!-- JQVMap -->
+            <script src="app/assets/vendors/jqvmap/dist/jquery.vmap.js"></script>
+            <script src="app/assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+            <script src="app/assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+            <!-- bootstrap-daterangepicker -->
+            <script src="app/assets/js/moment/moment.min.js"></script>
+            <script src="app/assets/js/datepicker/daterangepicker.js"></script>
+            <!-- jQuery custom content scroller -->
+            <script src="app/assets/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+            <!-- Custom Theme Scripts -->
+            <script src="app/assets/vendors/build/js/custom.js"></script>
+
+            <!-- Datatables -->
+            <script src="app/assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+            <script src="app/assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+            <script src="app/assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+            <script src="app/assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+            <script src="app/assets/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+            <script src="app/assets/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+            <script src="app/assets/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+            <script src="app/assets/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+            <script src="app/assets/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+            <script src="app/assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+            <script src="app/assets/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+            <script src="app/assets/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+            <script src="app/assets/vendors/jszip/dist/jszip.min.js"></script>
+            <script src="app/assets/vendors/pdfmake/build/pdfmake.min.js"></script>
+            <script src="app/assets/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+            <!-- Datatables -->
+            <script>
+              $(document).ready(function() {
+                var handleDataTableButtons = function() {
+                  if ($("#datatable-buttons").length) {
+                    $("#datatable-buttons").DataTable({
+                      dom: "Bfrtip",
+                      buttons: [
+                        {
+                          extend: "copy",
+                          className: "btn-sm"
+                        },
+                        {
+                          extend: "csv",
+                          className: "btn-sm"
+                        },
+                        {
+                          extend: "excel",
+                          className: "btn-sm"
+                        },
+                        {
+                          extend: "pdfHtml5",
+                          className: "btn-sm"
+                        },
+                        {
+                          extend: "print",
+                          className: "btn-sm"
+                        },
+                      ],
+                      responsive: true
+                    });
+                  }
+                };
+
+                TableManageButtons = function() {
+                  "use strict";
+                  return {
+                    init: function() {
+                      handleDataTableButtons();
+                    }
+                  };
+                }();
+
+                $('#datatable').dataTable();
+
+                $('#datatable-keytable').DataTable({
+                  keys: true
+                });
+
+                $('#datatable-responsive').DataTable();
+
+                $('#datatable-scroller').DataTable({
+                  ajax: "js/datatables/json/scroller-demo.json",
+                  deferRender: true,
+                  scrollY: 380,
+                  scrollCollapse: true,
+                  scroller: true
+                });
+
+                $('#datatable-fixed-header').DataTable({
+                  fixedHeader: true
+                });
+
+                var $datatable = $('#datatable-checkbox');
+
+                $datatable.dataTable({
+                  'order': [[ 1, 'asc' ]],
+                  'columnDefs': [
+                    { orderable: false, targets: [0] }
+                  ]
+                });
+                $datatable.on('draw.dt', function() {
+                  $('input').iCheck({
+                    checkboxClass: 'icheckbox_flat-green'
+                  });
+                });
+
+                TableManageButtons.init();
+              });
+            </script>
+            <!-- /Datatables -->
+          </body>
+        </html>

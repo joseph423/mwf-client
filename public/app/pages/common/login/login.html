@@ -1,0 +1,81 @@
+<!--
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Gentallela Alela! | </title>-->
+    <!--
+
+    <link href="../../../assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../../../assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://colorlib.com/polygon/gentelella/css/animate.min.css" rel="stylesheet">
+
+
+    <link href="../build/css/custom.min.css" rel="stylesheet">-->
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+
+            <form id="myform" ng-submit="login(user)">
+              <h1>Sign In</h1>
+              <div>
+                <input type="text" class="form-control" ng-model="user.email" placeholder="Username" required/>
+              </div>
+              <div>
+                <input type="password" class="form-control" ng-model="user.password" placeholder="Password" required/>
+              </div>
+              <div>
+                <input type="submit" class="btn btn-default submit" value="Sign in">
+              </div>
+              <div>
+                <label>{{message}}</label>
+              </div>
+              <div class="clearfix"></div>
+              <div class="separator">
+                <a href="#signup" class="to_register">Forgot your password?</a>
+                <div class="clearfix"></div>
+                <br />
+                <div>
+                  <h1>Attendanec Tracker</h1>
+                  <p>©2016 All Rights Reserved. Attendanec Tracker is developed by Cenique Global. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <!--reset password-->
+        <div id="register" class="animate form registration_form">
+          <section class="login_content">
+
+            <form>
+              <h1>Reset Password</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="Personal Name" required/>
+              </div>
+              <div>
+                <input type="email" class="form-control" placeholder="Email" required/>
+              </div>
+              <div>
+                <input type="submit" class="btn btn-default submit" value="Submit">
+              </div>
+              <div class="clearfix"></div>
+              <div class="separator">
+                <a href="#signin" class="to_register"> Sign in </a>
+                <div class="clearfix"></div>
+                <br />
+                <div>
+                  <h1>Attendanec Tracker</h1>
+                  <p>©2016 All Rights Reserved. Attendanec Tracker is developed by Cenique Global. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
