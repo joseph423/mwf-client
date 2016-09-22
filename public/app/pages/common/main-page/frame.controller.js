@@ -6,7 +6,7 @@ angular
         console.log('Creating company account');
         $http({
           method: 'POST',
-          url: 'http://192.168.12.119:3000/api/users/login',
+          url: 'http://localhost:3000/api/users/login',
           data: companyAcc
         }).then(function successCallback(response) {
             //code
@@ -18,7 +18,7 @@ angular
         console.log('Deleting company account');
         $http({
           method: 'POST',
-          url: 'http://192.168.12.119:3000/api/users/login',
+          url: 'http://localhost:3000/api/users/login',
           data: companyAcc
         }).then(function successCallback(response) {
           //code
@@ -30,7 +30,7 @@ angular
         console.log('Updating company account');
         $http({
           method: 'POST',
-          url: 'http://192.168.12.119:3000/api/users/login',
+          url: 'http://localhost:3000/api/users/login',
           data: companyAcc
         }).then(function successCallback(response) {
           //code

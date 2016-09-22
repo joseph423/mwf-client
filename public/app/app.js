@@ -20,45 +20,97 @@ angular
         abstract: true,
         template: '<div ui-view=""></div>'
       })
-      .state('insertCorpAcc', {
-        url: '/company_account/insert',
+
+
+
+      //Company Account
+      .state('insertCorpA', {
+        url: '/user/company/company_administrator/new_company_account',
         parent: 'main.management',
+        controller: 'CorpAccController',
         templateUrl: 'app/components/account/company/insert.html'
       })
-      .state('updateCorpAcc', {
-        url: '/company_account/update',
+      .state('updateCorpA', {
+        url: '/user/company/company_administrator/modification_and_deletion',
         parent: 'main.management',
+        controller: 'CorpAccController',
         templateUrl: 'app/components/account/company/update.html'
       })
-      .state('removeCorpAcc', {
-        url: '/company_account/remove',
+
+
+      //Department Account
+      .state('insertDeptA', {
+        url: '/user/company/department_administrator/new_department_account',
         parent: 'main.management',
-        templateUrl: 'app/components/account/company/remove.html'
+        controller: 'DeptAccController',
+        templateUrl: 'app/components/account/department/insert.html'
+      })
+      .state('updateDeptA', {
+        url: '/user/company/department_administrator/modification_and_deletion',
+        parent: 'main.management',
+        controller: 'DeptAccController',
+        templateUrl: 'app/components/account/department/update.html'
+      })
+
+
+      //Employee Account
+      .state('insertEmplyA', {
+        url: '/user/company/employee/new_employee_account',
+        parent: 'main.management',
+        controller: 'EmplyAccController',
+        templateUrl: 'app/components/account/employee/insert.html'
+      })
+      .state('updateEmplyA', {
+        url: '/user/company/employee/modification_and_deletion',
+        parent: 'main.management',
+        controller: 'EmplyAccController',
+        templateUrl: 'app/components/account/employee/update.html'
       })
 
 
 
       //company management
       .state('insertCorp', {
-        url: '/company_management/company/insert',
+        url: '/company_management/insert',
         parent: 'main.management',
         controller: 'CorpController',
         templateUrl: 'app/components/company-management/company/insert.html'
       })
       .state('updateCorp', {
-        url: '/company_management/company/update',
+        url: '/company_management/modification_and_deletion',
         parent: 'main.management',
         controller: 'CorpController',
         templateUrl: 'app/components/company-management/company/update.html'
       })
-      .state('removeCorp', {
-        url: '/company_management/company/remove',
+
+      //projects
+      .state('insertProj', {
+        url: '/projects/new_projects',
         parent: 'main.management',
-        controller: 'CorpController',
-        templateUrl: 'app/components/company-management/company/remove.html'
+        controller: 'ProjController',
+        templateUrl: 'app/components/project/insert.html'
+      })
+      .state('updateProj', {
+        url: '/projects/modification_and_deletion',
+        parent: 'main.management',
+        controller: 'ProjController',
+        templateUrl: 'app/components/project/update.html'
       })
 
 
+      //attandence
+      .state('insertAtt', {
+        url: '/attentance/new_attandence',
+        parent: 'main.management',
+        controller: 'AttController',
+        templateUrl: 'app/components/attentance/insert.html'
+      })
+      .state('updateAtt', {
+        url: '/attentance/modification_and_deletion',
+        parent: 'main.management',
+        controller: 'AttController',
+        templateUrl: 'app/components/attentance/update.html'
+      })
 
 
       .state('corpAdmin', {
@@ -80,7 +132,9 @@ angular
   .controller('AppController', function($rootScope, $scope, $state) {
     $rootScope.serverIp = '192.168.12.159:3000';
 
-$scope.parentName = 'su.manaement';
+    $rootScope.permission;
+
+    $scope.parentName = 'su.manaement';
 
     $scope.type = 'content';
 

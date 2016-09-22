@@ -2,7 +2,7 @@
   <div class="page-title">
     <div class="title_left">
       <div ui-view="main"></div>
-      <h3>Company Management</h3>
+      <h3>Project</h3>
     </div>
 
     <div class="title_right">
@@ -14,94 +14,74 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>Company Management - New Company Info</h2>
+          <h2>New Project</h2>
           <div class="clearfix"></div>
         </div>
 
         <div class="x_content">
-          <form class="form-horizontal form-label-left" ng-submit="insertCorp()">
+          <form class="form-horizontal form-label-left" ng-submit="insertProj()">
             <span class="section">Basic Information</span>
 
             <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Company Name (Chinese)</label>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Project Name (Chinese)</label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="text" id="name" name="name" ng-model="companyInsert.chiname"
+                <input type="text" id="name" name="name" ng-model="projectInsert.chiname"
                   class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" required>
               </div>
             </div>
 
             <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="enName">Company Name (English)</label>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="enName">Project Name (English)</label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="text" id="enName" name="enName" ng-model="companyInsert.engname"
+                <input type="text" id="enName" name="enName" ng-model="projectInsert.engname"
                   class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" required>
-              </div>
-            </div>
-
-            <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">Company Code</label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="text" id="code" name="code" ng-model="companyInsert.code"
-                  class="form-control col-md-7 col-xs-12" required>
               </div>
             </div>
 
             <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description</label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <textarea id="description" name="description" ng-model="companyInsert.description"
+                <textarea id="description" name="description" ng-model="projectInsert.description"
                   class="form-control col-md-7 col-xs-12" style="height: 150px;" required></textarea>
               </div>
             </div>
 
-            <span class="section">Department</span>
-
             <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">Department Details</label>
-              <div class="col-md-1 col-sm-1 col-xs-12">
-                <input type="text" ng-model="deptInfo._id" class="form-control" placeholder="ID">
-              </div>
-
-              <div class="col-md-4 col-sm-4 col-xs-12">
-                <input type="text" ng-model="deptInfo.name" class="form-control" placeholder="Name">
-              </div>
-
-              <div class="col-md-1 col-sm-1 col-xs-12">
-                <button type="button" ng-click="addDept()" class="form-control btn btn-info">Add</button>
-              </div>
-
-              <div class="col-md-3 col-sm-3 col-xs-12 form-group">
-                <label>{{nullMsg}}</label>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address">Address</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <textarea id="description" name="description" ng-model="projectInsert.address"
+                  class="form-control col-md-7 col-xs-12" style="height: 150px;" required></textarea>
               </div>
             </div>
 
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Type</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" id="name" name="name" ng-model="projectInsert.type"
+                  class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" required>
+              </div>
+            </div>
 
             <div class="item form-group">
-              <div class="col-md-3 col-sm-3 col-xs-12"></div>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Department Name</th>
-                      <th>#</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="info in dept">
-                      <td>{{info._id}}</td>
-                      <td>{{info.name}}</td>
-                      <td><button type="button" ng-click="removeNewDept($index)" class="btn btn-success">Remove</button></td>
-                    </tr>
-                  </tbody>
-                </table>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Start Date
+              </label>
+              <div class="col-md-6 col-sm-1 col-xs-12">
+              <input size="16" type="date" ng-model="projectInsert.start_date" class="form-control col-md-7 col-xs-12">
+              </div>
+            </div>
+
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date
+              </label>
+              <div class="col-md-6 col-sm-1 col-xs-12">
+              <input size="16" type="date" ng-model="projectInsert.end_date" class="form-control col-md-7 col-xs-12">
               </div>
             </div>
 
             <div class="ln_solid"></div>
             <div class="form-group">
               <div class="col-md-6 col-md-offset-3">
-                <button type="submit" class="btn btn-primary">Cancel</button>
+                <button type="reset" class="btn btn-primary">Cancel</button>
                 <button id="send" type="submit" class="btn btn-success">Submit</button>
               </div>
             </div>

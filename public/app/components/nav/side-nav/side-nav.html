@@ -1,45 +1,48 @@
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
   <div class="menu_section">
-    <h3>General</h3>
+    <!--<h3>General</h3>-->
     <ul class="nav side-menu">
       <li><a> Account <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
-          <li><a> Company Admin<span class="fa fa-chevron-down"></span></a>
+          <li><a> Company Administrator <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a ui-sref="insertCorpAcc">Create</a></li>
-              <li><a ui-sref="updateCorpAcc">Modify</a></li>
-              <li><a ui-sref="removeCorpAcc">Delete</a></li>
+              <li><a ui-sref="insertCorpA">Create</a></li>
+              <li><a ui-sref="updateCorpA">Modify & Delete</a></li>
             </ul>
           </li>
-          <li><a> Department Admin <span class="fa fa-chevron-down"></span></a>
+          <li><a> Department Administrator <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
+              <li><a ui-sref="insertDeptA">Create</a></li>
+              <li><a ui-sref="updateDeptA">Modify & Delete</a></li>
             </ul>
           </li>
           <li><a> Employee <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
+              <li><a ui-sref="insertEmplyA">Create</a></li>
+              <li><a ui-sref="updateEmplyA">Modify & Delete</a></li>
             </ul>
           </li>
         </ul>
       </li>
       <li><a></i> Company Management <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
-          <li><a> Company<span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-              <li><a ui-sref="insertCorp">Create</a></li>
-              <li><a ui-sref="updateCorp">Modify</a></li>
-              <li><a ui-sref="removeCorp">Delete</a></li>
-            </ul>
-          </li>
-          <li><a> Department <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-            </ul>
-          </li>
-          <li><a> Employee <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-            </ul>
-          </li>
+          <li><a ui-sref="insertCorp">Create</a></li>
+          <li><a ui-sref="updateCorp">Modify & Delete</a></li>
         </ul>
       </li>
+      <li><a></i> Projects <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu">
+          <li><a ui-sref="insertProj">New Project</a></li>
+          <li><a ui-sref="updateProj">Modify & Delete</a></li>
+        </ul>
+      </li>
+      <li><a></i> Attentance <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu">
+          <li><a ui-sref="insertAtt">Add Attandence</a></li>
+          <li><a ui-sref="updateAtt">Modify & Delete</a></li>
+        </ul>
+      </li>
+      <!--
       <li><a> Staff <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><a href="general_elements.html">General Elements</a></li>
@@ -114,7 +117,7 @@
             <li><a href="#level1_2">Level One</a>
             </li>
         </ul>
-      </li>
+      </li>-->
     </ul>
   </div>
 </div>

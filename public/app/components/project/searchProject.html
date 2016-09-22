@@ -5,55 +5,60 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Find Company</h4>
+        <h4 class="modal-title">Find Project</h4>
       </div>
       <div class="modal-body">
 
-
-
-
         <form class="form-horizontal form-label-left">
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Project ID
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" id="code" ng-model="projectQuery.pid" name="code" class="form-control col-md-7 col-xs-12">
+            </div>
+          </div>
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name(Chinese)
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" ng-model="companyQuery.chiname" id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name">
+              <input type="text" ng-model="projectQuery.chiname" id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name">
             </div>
           </div>
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name(English)
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="name" ng-model="companyQuery.engname" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name">
+              <input type="text" id="name" ng-model="projectQuery.engname" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name">
             </div>
           </div>
 
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Company Code
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Address
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="code" ng-model="companyQuery.code" name="code" class="form-control col-md-7 col-xs-12">
+              <textarea id="textarea" ng-model="projectQuery.address" name="textarea" class="form-control col-md-7 col-xs-12" required>{{modiInfo.address}}</textarea>
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Status
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Type
             </label>
-            <!--<div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="code" ng-model="companyQuery.status" name="code" class="form-control col-md-7 col-xs-12">
-            </div>-->
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select id="statusOpt" class="form-control" ng-model="companyQuery.status">
-                <option value=""></option>
-                <option value="Active">Active</option>
-                <option value="Terminated">Terminated</option>
-              </select>
+              <input type="text" id="code" class="form-control col-md-7 col-xs-12" ng-model="projectQuery.type" required>
+            </div>
+          </div>
+
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Start Date
+            </label>
+            <div class="col-md-6 col-sm-1 col-xs-12">
+            <input size="16" type="date" ng-model="projectQuery.start_date" class="form-control col-md-7 col-xs-12">
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Company ID
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date
             </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="code" ng-model="companyQuery.id" name="code" class="form-control col-md-7 col-xs-12">
+            <div class="col-md-6 col-sm-1 col-xs-12">
+            <input size="16" type="date" ng-model="projectQuery.end_date" class="form-control col-md-7 col-xs-12">
             </div>
           </div>
 
@@ -63,7 +68,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12">From
             </label>
             <div class="col-md-6 col-sm-1 col-xs-12">
-            <input size="16" type="date" ng-model="companyQuery.start_date" class="form-control col-md-7 col-xs-12">
+            <input size="16" type="date" ng-model="projectQuery.astart_date" class="form-control col-md-7 col-xs-12">
             </div>
           </div>
 
@@ -71,20 +76,18 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12">To
             </label>
             <div class="col-md-6 col-sm-1 col-xs-12">
-            <input size="16" type="date" ng-model="companyQuery.end_date" class="form-control col-md-7 col-xs-12">
+            <input size="16" type="date" ng-model="projectQuery.aend_date" class="form-control col-md-7 col-xs-12">
             </div>
           </div>
 
-
-          <span class="section">Department Details</span>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Department ID</label>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <input type="text" ng-model="deptInfo._id" class="form-control" placeholder="ID">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Staff ID</label>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+              <input type="text" ng-model="staff" class="form-control" placeholder="Staff ID">
             </div>
 
             <div class="col-md-2 col-sm-2 col-xs-12">
-              <button type="button" ng-click="addDeptId()" class="form-control btn btn-info">Add</button>
+              <button type="button" ng-click="addStaffName()" class="form-control btn btn-info">Add</button>
             </div>
 
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
@@ -98,49 +101,14 @@
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>Department ID</th>
+                    <th>Staff ID</th>
                     <th>#</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="id in deptIdQuery">
+                  <tr ng-repeat="id in staffIdQuery">
                     <td>{{id}}</td>
-                    <td><button type="button" ng-click="removeDeptId($index)" class="btn btn-success">Remove</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Department Name</label>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <input type="text" ng-model="deptInfo.name" class="form-control" placeholder="ID">
-            </div>
-
-            <div class="col-md-2 col-sm-2 col-xs-12">
-              <button type="button" ng-click="addDeptName()" class="form-control btn btn-info">Add</button>
-            </div>
-
-            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
-              <label>{{nullName}}</label>
-            </div>
-          </div>
-
-          <div class="item form-group">
-            <div class="col-md-3 col-sm-3 col-xs-12"></div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Department Name</th>
-                    <th>#</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="name in deptNameQuery">
-                    <td>{{name}}</td>
-                    <td><button type="button" ng-click="removeDeptName($index)" class="btn btn-success">Remove</button></td>
+                    <td><button type="button" ng-click="removeStaffId($index)" class="btn btn-success">Remove</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -154,7 +122,7 @@
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
               <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-              <button id="send" type="submit" ng-click="queryCorp()" class="btn btn-success" data-dismiss="modal">Search</button>
+              <button id="send" type="submit" ng-click="queryProj()" class="btn btn-success" data-dismiss="modal">Search</button>
             </div>
           </div>
         </form>
@@ -192,7 +160,7 @@
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
               <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-              <button id="send" type="submit" ng-click="deleteCorp()" class="btn btn-success" data-dismiss="modal">Confirm</button>
+              <button id="send" type="submit" ng-click="deleteProj()" class="btn btn-success" data-dismiss="modal">Confirm</button>
             </div>
           </div>
         </form>
@@ -210,32 +178,38 @@
                 <tr>
                   <th>#</th>
                   <th>#</th>
-                  <th>ID</th>
+                  <th>Project ID</th>
                   <th>Name(Chi)</th>
                   <th>Name(Eng)</th>
-                  <th>Code</th>
-                  <th>Department Name(ID)</th>
-                  <th>Status</th>
+                  <th>Address</th>
                   <th>Description</th>
+                  <th>Type</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Involved Staff</th>
+                  <th>Assigned Date</th>
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="info in companyInfo">
+                <tr ng-repeat="info in projectInfo">
                   <td style="display:;">
                     <button type="button" ng-click="setModiInfo(info)" class="btn btn-success" data-toggle="modal" data-target="#panel">Modify</button>
                   </td>
                   <td>
                     <button type="button" ng-click="setDelInfo(info)" class="btn" data-toggle="modal" data-target="#confirmDia">Delete</button>
                   </td>
-                  <td>{{info.id}}</td>
+                  <td>{{info.pid}}</td>
                   <td>{{info.chiname}}</td>
                   <td>{{info.engname}}</td>
-                  <td>{{info.code}}</td>
-                  <td>
-                    <div ng-repeat="dept in info.department">{{dept.name}}({{dept._id}})<br><br></div>
-                  </td>
-                  <td>{{info.status}}</td>
+                  <td>{{info.address}}</td>
                   <td>{{info.description}}</td>
+                  <td>{{info.type}}</td>
+                  <td>{{info.start_date}}</td>
+                  <td>{{info.end_date}}</td>
+                  <td>
+                    <div ng-repeat="staff in info.staff">{{staff}}<br><br></div>
+                  </td>
+                  <td>{{info.assigned_date}}</td>
                 </tr>
               </tbody>
             </table>

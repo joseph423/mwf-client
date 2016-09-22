@@ -1,0 +1,179 @@
+<!--Modification Dialog-->
+<div class="modal fade" id="filter" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Find Department Administrator</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal form-label-left">
+          <!--<span class="section">Search specific Department Administrator</span>-->
+
+
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Company ID
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" ng-model="userQuery.cid" id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name">
+            </div>
+          </div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Staff ID
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" ng-model="userQuery.sid" id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name">
+            </div>
+          </div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">iBeacon No
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" ng-model="userQuery.iBeaconNo" id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name">
+            </div>
+          </div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div id="gender" class="btn-group" data-toggle="buttons">
+                <input type="button" class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" value="Male" ng-click="setGender('Male')" >
+                <input type="button" class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" value="Female" ng-click="setGender('Female')" >
+              </div>
+            </div>
+          </div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Contact No</label>
+            <div class="col-md-6 col-sm-1 col-xs-12">
+              <input size="16" type="tel" ng-model="userQuery.contactno" class="form-control col-md-7 col-xs-12" pattern='\d{8}' title="e.g. 12345678">
+            </div>
+          </div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name(Chinese)
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" ng-model="userQuery.chiname" id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name">
+            </div>
+          </div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name(English)
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" id="name" ng-model="userQuery.engname" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name">
+            </div>
+          </div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="enName">Email</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="email" id="enName" name="enName" ng-model="userQuery.email" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" required>
+            </div>
+          </div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Company Code
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" id="code" ng-model="userQuery.code" name="code" class="form-control col-md-7 col-xs-12">
+            </div>
+          </div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="enName">Work Type</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text"  ng-model="userQuery.worktype"
+                class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" required>
+            </div>
+          </div>
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-6 col-md-offset-3">
+              <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+              <button id="send" type="submit" ng-click="queryUser()" class="btn btn-success" data-dismiss="modal">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End of Modification Dialog-->
+
+
+
+<!--Account Deletion Comfirm Dialog-->
+<div class="modal fade" id="confirmDia" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">System Information</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal form-label-left">
+          <span class="section">Confirmation</span>
+          <div class="ln_solid"></div>
+          <p class="text-muted font-13 m-b-30">
+            You may click 'Confirm' to execute the operation.
+          </p>
+          <p class="text-muted font-13 m-b-30">
+            <code>Warning : </code>The relevant information will no longer exist after the deletion!
+          </p>
+          <div class="form-group">
+            <div class="col-md-6 col-md-offset-3">
+              <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+              <button id="send" type="submit" ng-click="deleteCorp()" class="btn btn-success" data-dismiss="modal">Confirm</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!--End of Account Deletion Comfirm Dialog-->
+
+
+<!-- page content -->
+<button type="button" class="btn btn-info" ng-click="clearFilter()" data-toggle="modal" data-target="#filter">Filter Results</button>
+          <div class="table-responsive">
+            <table class="table table-striped jambo_table bulk_action">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>#</th>
+                  <th>CID</th>
+                  <th>SID</th>
+                  <th>role</th>
+                  <th>iBeason Mac Address</th>
+                  <th>Gender</th>
+                  <th>Contact No</th>
+                  <th>Name(Chi)</th>
+                  <th>Name(Eng)</th>
+                  <th>Email</th>
+                  <th>Work Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="info in userInfo">
+                  <td>
+                    <button type="button" ng-click="setModiInfo(info)" class="btn btn-success" data-toggle="modal" data-target="#panel">Modify</button>
+                  </td>
+                  <td>
+                    <button type="button" ng-click="setDelInfo(info)" class="btn" data-toggle="modal" data-target="#confirmDia">Delete</button>
+                  </td>
+                  <td>{{info.cid}}</td>
+                  <td>{{info.sid}}</td>
+                  <td>{{info.role}}</td>
+                  <td>{{info.iBeaconNo}}</td>
+                  <td>{{info.gender}}</td>
+                  <td>{{info.contactno}}</td>
+                  <td>{{info.chiname}}</td>
+                  <td>{{info.engname}}</td>
+                  <td>{{info.email}}</td>
+                  <td>{{info.worktype}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+<!-- /page content -->

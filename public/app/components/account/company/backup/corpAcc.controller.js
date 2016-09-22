@@ -1,11 +1,9 @@
-//This - Company management - is fully functional, it means the program is already worked
-
 angular
   .module('app')
-  .directive('search', function() {
+  .directive('searchCorpAcc', function() {
     return {
       restrict: 'E',
-      templateUrl: 'app/components/company-management/company/search.html',
+      templateUrl: 'app/components/account/company/searchCorpAcc.html',
       link: function() {
           $(document).ready(function() {
             var handleDataTableButtons = function() {
@@ -87,15 +85,15 @@ angular
       }
     }
   })
-  .service('CMService', function($http, $state, $q){
+  .service('CorpAccService', function($http, $state, $q){
     return {
-      insertCorp: function(companyInsert){  //insert
+      insertUser: function(userInsert){  //insert
         var deferred = $q.defer();
 
         $http({
           method: 'POST',
-          url: 'http://localhost:3000/api/company/insert',
-          data: companyInsert
+          url: 'http://localhost:3000/api/users/insert',
+          data: userInsert
         }).then(function successCallback(response) {
           console.log('DONE');
             $state.reload();
@@ -106,33 +104,34 @@ angular
 
           return deferred.promise;
       },
-      removeCorp: function(id){  //remove
+      removeUser: function(id){  //remove
         console.log(id);
         $http({
           method: 'POST',
-          url: 'http://localhost:3000/api/company/delete',
+          url: 'http://localhost:3000/api/users/delete',
           data: id
         }).then(function successCallback(response) {
           $state.reload();
           }, function errorCallback(response) {
           });
       },
-      updateCorp: function(companyUpdate){  //update
+      updateUser: function(userUpdate){  //update
         $http({
           method: 'PATCH',
-          url: 'http://localhost:3000/api/company/update',
-          data: companyUpdate
+          url: 'http://localhost:3000/api/users/update',
+          data: userUpdate
         }).then(function successCallback(response) {
           $state.reload();
           }, function errorCallback(response) {
           });
       },
-      queryCorp: function(companyQuery){  //query
+      queryUser: function(userQuery){  //query
+        console.log(userQuery);
         var deferred = $q.defer();
         $http({
           method: 'POST',
-          url: 'http://localhost:3000/api/company/query',
-          data: companyQuery
+          url: 'http://localhost:3000/api/users/query',
+          data: userQuery
         }).then(function successCallback(response) {
           deferred.resolve(response.data);
           }, function errorCallback(response) {
@@ -143,44 +142,83 @@ angular
       }
     }
   })
-  .controller('CorpController', function($scope, $rootScope, $http, $state, CMService) {
-    $scope.companyInfo;
-    $scope.dept = [];
+  .controller('CorpAccController', function($scope, $rootScope, $http, $state, CorpAccService) {
+    $scope.userQuery = {
+      cid: '',
+      sid: '',
+      role: 'company_admin',
+      iBeaconNo: '',
+      gender: '',
+      contactno: '',
+      chiname: '',
+      engname: '',
+      email: '',
+      worktype: '',
+      bstart_date: '',
+      bend_date: '',
+      estart_date: '',
+      eend_date: '',
+      department: '',
+      projectno: ['']
+    }
+
+    $scope.userInfo;
+
+//common use
+//end of common
 
 
-//insertCorp
+
+
+
+//Insertion of User
     $scope.errMsg;
 
-    $scope.insertCorp = function() {
-      CMService.insertCorp($scope.companyInsert).then(function(msg) {
+    $scope.insertUser = function() {
+      console.log($scope.userInsert);
+      CorpAccService.insertUser($scope.userInsert).then(function(msg) {
         $scope.errMsg = msg;
         $('#mobtn').click();
       });
     }
 
-    $scope.companyInsert = {
+    $scope.userInsert = {
+      cid: '',
+      email: '',
+      password: '',
       chiname: '',
       engname: '',
-      code: '',
-      description: '',
-      department: $scope.dept
+      worktype: '',
+      gender: 'Male',
+      department: '',
+      contactno: '',
+      birthday: new Date(),
+      employment_date: new Date(),
+      role: 'company_admin'
     }
 
-    $scope.removeNewDept = function(index) {
-      $scope.companyInsert.department.splice(index, 1);
+    $scope.setGender = function(gender) {
+      $scope.userInsert.gender = gender;
     };
-//end of insertCorp
+//end of insertUser
+
+
+
 
 
 
 
 //update function and variable
+
     $scope.updateCorp = function() {
-      CMService.updateCorp($scope.modiInfo);
+      CorpAccService.updateCorp($scope.modiInfo);
+    };
+
+    $scope.removeNewDept = function(index) {
+      $scope.companyInsert.department.splice(index, 1);
     };
 
     $scope.modiInfo;
-    $scope.deptInfo = {_id: '', name: ''};
 
     $scope.setModiInfo = function(info) {
       $scope.dept = [];
@@ -208,19 +246,6 @@ angular
       }
     };
 
-    $scope.nullMsg = '';
-
-    $scope.addDept = function() {
-      if($scope.deptInfo._id != '' && $scope.deptInfo.name != ''){
-        $scope.dept.push({_id: $scope.deptInfo._id, name: $scope.deptInfo.name});
-        $scope.deptInfo._id = '';
-        $scope.deptInfo.name = '';
-        $scope.nullMsg = '';
-      }else{
-        $scope.nullMsg = 'Department ID and Name cannot be empty';
-      }
-    };
-
     $scope.removeDept = function(index) {
       $scope.modiInfo.department.splice(index, 1);
     };
@@ -236,64 +261,13 @@ angular
 
 
 
-//company query
-$scope.deptIdQuery = [];
-$scope.deptNameQuery = [];
-
-$scope.companyQuery = {
-  id: '',
-  chiname: '',
-  engname: '',
-  code: '',
-  status: '',
-  deptid: $scope.deptIdQuery,
-  deptn: $scope.deptNameQuery,
-  start_date: '',
-  end_date: ''
-}
-
-$scope.nullId = '';
-$scope.addDeptId = function() {
-  if($scope.deptInfo._id != ''){
-    $scope.deptIdQuery.push($scope.deptInfo._id);
-    $scope.deptInfo._id = '';
-    $scope.nullId = '';
-  }else{
-    $scope.nullId = 'Department ID cannot be empty';
-  }
-};
-
-$scope.nullName = '';
-$scope.addDeptName = function() {
-  if($scope.deptInfo.name != ''){
-    $scope.deptNameQuery.push($scope.deptInfo.name);
-    $scope.deptInfo.name = '';
-    $scope.nullName = '';
-  }else{
-    $scope.nullName = 'Department Name cannot be empty';
-  }
-};
-
-$scope.removeDeptId = function(index) {
-  $scope.companyQuery.deptid.splice(index, 1);
-};
-
-$scope.removeDeptName = function(index) {
-  $scope.companyQuery.deptn.splice(index, 1);
-};
-//end of query
-
-
-
-
-
 
 
 
 
 //company delete
 $scope.deleteCorp = function() {
-  CMService.removeCorp({id: $scope.delID.id});
+  CorpAccService.removeCorp({id: $scope.delID.id});
 }
 
 $scope.delID;
@@ -309,15 +283,17 @@ $scope.setDelInfo = function(info) {
 
 
 //company query
-    $scope.queryCorp = function() {
-      CMService.queryCorp($scope.companyQuery).then(function(data) {
-        $scope.companyInfo = data;
+    $scope.queryUser = function() {
+      CorpAccService.queryUser($scope.userQuery).then(function(data) {
+        console.log($scope.userQuery);
+        console.log(data);
+        $scope.userInfo = data
       });
     }
 
     //end of company query
     $scope.clearFilter = function() {
-      $scope.companyQuery = {
+      /*$scope.userQuery = {
         id: '',
         chiname: '',
         engname: '',
@@ -327,7 +303,7 @@ $scope.setDelInfo = function(info) {
         deptn: [],
         start_date: '',
         end_date: ''
-      }
+      }*/
     }
 
     $scope.signout = function(){
@@ -335,6 +311,6 @@ $scope.setDelInfo = function(info) {
     }
 
     //init
-    if($state.is('updateCorp'))
-      $scope.queryCorp();
+    if($state.is('updateCorpA'))
+      $scope.queryUser();
   });

@@ -13,10 +13,12 @@ angular
     $scope.login = function(user){
       $http({
         method: 'POST',
-        url: 'http://192.168.12.159:3000/api/users/login',
+        url: 'http://localhost:3000/api/users/login',
         data: user
       }).then(function successCallback(response) {
-          $state.go('main');
+          console.log(response.data);
+          $rootScope.permission = response.data;
+          $state.go('insertCorpA');
       }, function errorCallback(response) {
           $scope.message = 'Invalid email and password!';
       });

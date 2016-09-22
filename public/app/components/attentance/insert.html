@@ -1,0 +1,121 @@
+<div class="right_col" role="main">
+  <div class="page-title">
+    <div class="title_left">
+      <div ui-view="main"></div>
+      <h3>Attendance</h3>
+    </div>
+
+    <div class="title_right">
+    </div>
+  </div>
+  <div class="clearfix"></div>
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>New Attendance</h2>
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="x_content">
+          <form class="form-horizontal form-label-left" ng-submit="insertProj()">
+            <span class="section">Attendance Detail(s)</span>
+
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Staff ID
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" id="name" name="name" ng-model="attendInsert.sid"
+                  class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" required>
+              </div>
+            </div>
+
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Status
+              </label>
+
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <select id="statusOpt" class="form-control" ng-model="attendInsert.status">
+                  <option value="in">In</option>
+                  <option value="out">Out</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Record Date
+              </label>
+              <div class="col-md-6 col-sm-1 col-xs-12">
+              <input size="16" type="date" ng-model="attendInsert.recorddate" class="form-control col-md-7 col-xs-12">
+              </div>
+            </div>
+
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Record Time
+              </label>
+              <div class="col-md-6 col-sm-1 col-xs-12">
+              <input size="16" type="time" ng-model="attendInsert.recordtime" class="form-control col-md-7 col-xs-12">
+              </div>
+            </div>
+
+
+
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="enName">iBeacon No.</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" id="enName" name="enName" ng-model="attendInsert.iBeaconNo"
+                  class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" required>
+              </div>
+            </div>
+
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Remark(s)</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <textarea id="description" name="description" ng-model="attendInsert.remarks"
+                  class="form-control col-md-7 col-xs-12" style="height: 150px;" required></textarea>
+              </div>
+            </div>
+
+            <div class="ln_solid"></div>
+            <div class="form-group">
+              <div class="col-md-6 col-md-offset-3">
+                <button type="reset" class="btn btn-primary">Cancel</button>
+                <button id="send" type="submit" class="btn btn-success">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!---->
+<input type="hidden" id="mobtn" class="btn" data-toggle="modal" data-target="#confirmDia"></button>
+<div class="modal fade" id="confirmDia" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">System Information</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal form-label-left">
+          <span class="section">{{errMsg}}</span>
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-6 col-md-offset-3">
+              <button id="send" type="submit" class="btn btn-success" data-dismiss="modal">Back</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

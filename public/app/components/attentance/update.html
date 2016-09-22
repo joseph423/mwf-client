@@ -1,0 +1,165 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <div ui-view="main"></div>
+        <h3>Attendance</h3>
+      </div>
+
+      <div class="title_right">
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Attendance - Modify Attendance Info</h2>
+            <div class="clearfix"></div>
+          </div>
+
+
+          <div class="x_content">
+
+<!--Update Form-->
+
+            <div class="modal fade" id="panel" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Attendance Info Modification</h4>
+                  </div>
+                  <div class="modal-body">
+
+
+                    <form class="form-horizontal form-label-left">
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Project ID
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="id" class="form-control col-md-7 col-xs-12" value="{{modiInfo.pid}}" disabled>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Name(Chinese)
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="chiname" class="form-control col-md-7 col-xs-12" ng-model="modiInfo.chiname" required>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Name(English)
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="engname" class="form-control col-md-7 col-xs-12" ng-model="modiInfo.engname" required>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Type
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="code" class="form-control col-md-7 col-xs-12" ng-model="modiInfo.type" required>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Description
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <textarea id="textarea" ng-model="modiInfo.description" name="textarea" class="form-control col-md-7 col-xs-12" required>{{modiInfo.description}}</textarea>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Address
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <textarea id="textarea" ng-model="modiInfo.address" name="textarea" class="form-control col-md-7 col-xs-12" required>{{modiInfo.address}}</textarea>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Start Date
+                        </label>
+                        <div class="col-md-6 col-sm-1 col-xs-12">
+                        <input size="16" type="date" ng-model="modiInfo.start_date" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date
+                        </label>
+                        <div class="col-md-6 col-sm-1 col-xs-12">
+                        <input size="16" type="date" ng-model="modiInfo.end_date" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Assigned Date
+                        </label>
+                        <div class="col-md-6 col-sm-1 col-xs-12">
+                        <input size="16" type="date" ng-model="modiInfo.assigned_date" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
+                      <span class="section">Project Member(s)</span>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Staff ID</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="text" ng-model="staff" class="form-control" placeholder="Staff ID">
+                        </div>
+
+                        <div class="col-md-2 col-sm-2 col-xs-12">
+                          <button type="button" ng-click="addStaffId()" class="form-control btn btn-info">Add</button>
+                        </div>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                          <label>{{nullMsg}}</label>
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <div class="col-md-3 col-sm-3 col-xs-12"></div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>Staff ID</th>
+                                <th>#</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="id in involvedStaff">
+                                <td>{{id}}</td>
+                                <td><button type="button" ng-click="removeStaff($index)" class="btn btn-success">Remove</button></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                          <button id="send" type="submit" ng-click="updateCorp()" class="btn btn-success" data-dismiss="modal">Confirm</button>
+                        </div>
+                      </div>
+                    </form>
+
+
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+              <search-att></search-att>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
